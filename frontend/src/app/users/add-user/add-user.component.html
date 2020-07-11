@@ -3,7 +3,8 @@
         <hr>
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button type="button" class="btn btn-danger pull-right" [routerLink]="['/users']">View Users List</button>
+                <button mat-raised-button type="button" class="btn btn-danger pull-right" [routerLink]="['/users']">View
+                    Users List</button>
             </div>
 
         </div>
@@ -17,11 +18,22 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Add User</h4>
-                        <p class="card-category">add a new user</p>
+                        <div>
+                            <h4 *ngIf="edit; then thenBlock else elseBlock"></h4>
+                            <ng-template #elseBlock>
+
+                                <h4 class="card-title">Add User</h4>
+                                <p class="card-category">Add a new user</p>
+                            </ng-template>
+                            <ng-template #thenBlock>
+                                <h4 class="card-title">Edit User Details</h4>
+                                <p class="card-category">Edit details of {{userDetails.fname}} {{userDetails.lname}}</p>
+
+                            </ng-template>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form #f="ngForm" (ngSubmit)="submitUserDetails()">
                             <div class="row">
                                 <!-- <div class="col-md-5">
                               <mat-form-field class="example-full-width">
@@ -30,53 +42,62 @@
                             </div> -->
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Username">
+                                        <input matInput placeholder="Username" name="username"
+                                            [ngModel]="userDetails.username">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Email address" type="email">
+                                        <input matInput placeholder="Email address" name="email"
+                                            [ngModel]="userDetails.email" type="email">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Contact Number" type="number">
+                                        <input matInput placeholder="Contact Number" name="contact"
+                                            [ngModel]="userDetails.contact" type="number">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Fist Name" type="text">
+                                        <input matInput placeholder="Fist Name" type="text" name="fname"
+                                            [ngModel]="userDetails.fname">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Last Name" type="text">
+                                        <input matInput placeholder="Last Name" type="text" name="lname"
+                                            [ngModel]="userDetails.lname">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Adress" type="text">
+                                        <input matInput placeholder="Adress" type="text" name="address"
+                                            [ngModel]="userDetails.address">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="City" type="text">
+                                        <input matInput placeholder="City" type="text" name="city"
+                                            [ngModel]="userDetails.city">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Country" type="text">
+                                        <input matInput placeholder="Country" type="text" name="country"
+                                            [ngModel]="userDetails.country">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Postal Code" type="text">
+                                        <input matInput placeholder="Postal Code" type="text" name="pincode"
+                                            [ngModel]="userDetails.pincode">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -95,9 +116,10 @@
                                 </div>
                             </div>
                         </div> -->
-                        <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="margin-left: 15px;">Submit</button>
-                        <button mat-raised-button type="button" class="btn btn-default pull-right">Cancel</button>
-                          
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right"
+                                style="margin-left: 15px;">Submit</button>
+                            <button mat-raised-button type="button" class="btn btn-default pull-right">Cancel</button>
+
                             <div class="clearfix"></div>
                         </form>
                     </div>

@@ -48,8 +48,6 @@ export class UsersComponent implements OnInit {
     let res = this.openDialog(userId,userName, 'User');
   }
 
-  
-
   ngOnInit(): void {
   }
 
