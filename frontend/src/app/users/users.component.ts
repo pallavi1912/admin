@@ -38,7 +38,7 @@ export class UsersComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       console.log('users', this.users);
       let pos = this.users.map(function(e) { return e.id; }).indexOf(result);
-      this.users.splice(pos,pos);
+      this.users.splice(pos,1);
 
     });
   }
