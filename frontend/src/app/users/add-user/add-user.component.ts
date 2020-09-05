@@ -21,7 +21,7 @@ export class AddUserComponent implements OnInit {
   ];
   constructor(private route: ActivatedRoute) {
 
-    console.log('tuype',this.route.params['id']);
+    console.log('type',this.route.params['id']);
     this.route.params.subscribe(params => {
       console.log('params',params);
       this.id = params['id'];
