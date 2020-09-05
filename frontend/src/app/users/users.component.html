@@ -32,14 +32,21 @@
                                             Name
                                         </th>
                                         <th>
+                                            UserName
+                                        </th>
+                                        <th>
                                             Email
                                         </th>
                                         <th>
                                             Contact Number
                                         </th>
                                         <th>
-                                            Actions
+                                            Website
                                         </th>
+                                        <th>
+                                            Company
+                                        </th>
+                                       
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let user of users">
@@ -50,18 +57,19 @@
                                                 {{user.name}}
                                             </td>
                                             <td>
+                                                {{user.username}}
+                                            </td>
+                                            <td>
                                                 {{user.email}}
                                             </td>
                                             <td>
-                                                {{user.contact}}
+                                                {{user.phone}}
                                             </td>
-                                            <td class="td-actions">
-                                                <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                    <i class="material-icons">edit</i>
-                                                </button>
-                                                <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                    <i class="material-icons">delete</i>
-                                                </button>
+                                            <td>
+                                                {{user.website}}
+                                            </td>
+                                            <td>
+                                                {{user.company.name}}
                                             </td>
                                         </tr>
                                     </tbody>

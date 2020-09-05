@@ -50,5 +50,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'users',          component: UsersComponent},
     { path: 'add-user',       component: AddUserComponent},
+    { path: 'edit-user/:id',  component: AddUserComponent},
     { path: '',               component: DashboardComponent}
 ];
