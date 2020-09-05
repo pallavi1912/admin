@@ -2,9 +2,10 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ const httpOptions = {
 export class UsersserviceService {
 
   constructor(private http:HttpClient) {
-  
+    
    }
 
    usersList() {
@@ -26,6 +27,9 @@ export class UsersserviceService {
     //   {'id':'US3987','name': 'Bernadette Rostenkowski-Wolowitz', 'email':'bernadette.rostenkowski.wolowitz@gmail.com', 'contact': '8085760906'},
     //   {'id':'US5345','name': 'Amy Farrah Fowler', 'email':'amy.farrah.fowler@gmail.com', 'contact': '8085760907'}
     // ];
-    return this.http.get("http://jsonplaceholder.typicode.com/users");
+    const headers = new HttpHeaders()
+    .set("Content-Type", "application/json");
+    return this.http.get("http://jsonplaceholder.typicode.com/users",{headers});
  }
+
 }
